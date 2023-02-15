@@ -38,34 +38,61 @@ function btnClicked() {
 
 // Menu Option Functions
 function traverseSurveyData() {
-  // Traverse the surveyData array to:
-  // Count the number of "Yes" responses,
-  // Count the number of "No" responses,
-  // Count the number of "Maybe" responses,
-  // and output the results in the outputEl.
+  let yes = 0;
+  let no = 0;
+  let maybe = 0;
 
-  outputEl.innerHTML = "Survey Data";
-  console.log(surveyData);
+  for (let n = 0; n < surveyData.length; n++) {
+    const answer = surveyData[n];
+
+    if (answer == "Yes") yes++;
+    else if (answer == "No") no++;
+    else maybe++;
+  }
+
+  outputEl.innerHTML = `
+    Yes: ${yes}<br>
+    No: ${no}<br>
+    Maybe: ${maybe}<br>
+  `;
 }
 
 function traverseAgeData() {
-  // Traverse the ageData array to:
-  // Count the number of ages under 18,
-  // Count the number of ages between 18 and 35, inclusive
-  // Count the number of ages between 36 and 65, inclusive
-  // Count the number of ages above 65,
-  // and output the results in the outputEl.
+  let under18 = 0;
+  let under36 = 0;
+  let under66 = 0;
+  let above65 = 0;
 
-  outputEl.innerHTML = "Age Data";
-  console.log(ageData);
+  for (let n = 0; n < ageData.length; n++) {
+    const age = ageData[n];
+
+    if (age < 18) under18++;
+    else if (age < 36) under36++;
+    else if (age < 66) under66++;
+    else above65++;
+  }
+
+  outputEl.innerHTML = `
+    Under 18: ${under18}<br>
+    18 to 35: ${under36}<br>
+    36 to 65: ${under66}<br>
+    Above 65: ${above65}
+  `;
 }
 
 function traverseNumberData() {
-  // Traverse the numberData array to:
-  // Count the number of even numbers,
-  // Count the number of odd numbers,
-  // and output the results in the outputEl.
+  let even = 0;
+  let odd = 0;
 
-  outputEl.innerHTML = "Number Data";
-  console.log(numberData);
+  for (let n = 0; n < numberData.length; n++) {
+    const num = numberData[n];
+
+    if (num % 2 == 0) even++;
+    else odd++;
+  }
+
+  outputEl.innerHTML = `
+    Even Numbers: ${even}<br>
+    Odd Numbers: ${odd}<br>
+  `;
 }
